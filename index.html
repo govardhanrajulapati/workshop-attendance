@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginPage" class="page">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="userID" placeholder="ID" required>
+            <input type="password" id="userPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="attendancePage" class="page" style="display: none;">
+        <div class="header">
+            <h1>Attendance Management</h1>
+            <div class="header-buttons">
+                <button id="submitAttendance">Submit Attendance</button>
+                <button id="logoutButton">Logout</button>
+            </div>
+        </div>
+        <div class="filters">
+            <select id="branchFilter">
+                <option value="">Select Branch</option>
+                <option value="CSM">CSM</option>
+                <option value="CAI">CAI</option>
+                <option value="CSD">CSD</option>
+                <option value="AID">AID</option>
+                <option value="CSC">CSC</option>
+            </select>
+            <select id="yearFilter">
+                <option value="">Select Year</option>
+                <option value="1st year">1st year</option>
+                <option value="2nd year">2nd year</option>
+                <option value="3rd year">3rd year</option>
+            </select>
+            <input type="text" id="searchBar" placeholder="Search by Name or Roll No">
+        </div>
+        <div class="table-container">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Year</th>
+                        <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody">
+                    <!-- Table rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
