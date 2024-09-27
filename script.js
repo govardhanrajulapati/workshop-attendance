@@ -72,7 +72,7 @@ function loadAttendanceTable() {
     const filteredStudents = students.filter(student => 
         (branchFilter === '' || student.branch === branchFilter) &&
         (yearFilter === '' || student.year === yearFilter) &&
-        (student.name.toLowerCase().includes(searchTerm) || student.rollNo.includes(searchTerm))
+        (student.name.toLowerCase().includes(searchTerm) || student.rollNo.toLowerCase().includes(searchTerm))
     );
 
     const tableBody = document.getElementById('attendanceTableBody');
@@ -87,8 +87,8 @@ function loadAttendanceTable() {
         
         const attendanceCell = row.insertCell(4);
         attendanceCell.innerHTML = `
-            <label><input type="radio" name="attendance_${student.rollNo}" value="present"> Present</label>
-            <label><input type="radio" name="attendance_${student.rollNo}" value="absent"> Absent</label>
+            <label><input type="radio" name="attendance_${student.rollNo}" value="present"> P</label>
+            <label><input type="radio" name="attendance_${student.rollNo}" value="absent"> A</label>
         `;
 
         // Add click event listeners to the radio buttons
@@ -115,6 +115,7 @@ function loadAttendanceTable() {
         });
     });
 }
+
 
 // Event listeners for filters and search
 document.getElementById('branchFilter').addEventListener('change', loadAttendanceTable);
@@ -262,7 +263,7 @@ function toggleFullscreen() {
         } else if (tableContainer.msRequestFullscreen) { // IE/Edge
             tableContainer.msRequestFullscreen();
         }
-        document.getElementById('fullscreenBtn').textContent = '❌';
+        // document.getElementById('fullscreenBtn').textContent = '❌';
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();

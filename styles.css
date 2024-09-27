@@ -74,35 +74,19 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
-    table-layout:auto;
-    background-color: white;
+    table-layout: fixed;
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 th {
     background-color: #f2f2f2;
     position: sticky;
     top: 0;
-}
-
-th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
-    width: 25%;
-}
-
-th:nth-child(3), th:nth-child(4), td:nth-child(3), td:nth-child(4) {
-    width: 15%;
-}
-
-th:nth-child(5), td:nth-child(5) {
-    width: 20%;
 }
 
 button {
@@ -127,8 +111,10 @@ button:hover {
 }
 
 #fullscreenBtn {
-
-    z-index: 1000;
+    /* position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; */
     background-color: #008CBA;
     font-size: 20px;
     padding: 5px 10px;
@@ -170,18 +156,63 @@ button:hover {
     button {
         font-size: 16px;
     }
+
+    th, td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 15%; }
+    th:nth-child(2), td:nth-child(2) { width: 30%; }
+    th:nth-child(3), td:nth-child(3) { width: 15%; }
+    th:nth-child(4), td:nth-child(4) { width: 15%; }
+    th:nth-child(5), td:nth-child(5) { width: 25%; }
 }
 
 @media (max-width: 767px) {
-    th:nth-child(3), th:nth-child(4), td:nth-child(3), td:nth-child(4) {
+    th:nth-child(3), th:nth-child(4),
+    td:nth-child(3), td:nth-child(4) {
         display: none;
     }
 
-    th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
-        width: 35%;
+    th:nth-child(1), td:nth-child(1) { 
+        width: 35%; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    th:nth-child(2), td:nth-child(2) { 
+        width: 40%; 
+    }
+    
+    th:nth-child(5), td:nth-child(5) { 
+        width: 35%; 
+ 
     }
 
-    th:nth-child(5), td:nth-child(5) {
-        width: 30%;
+    td:nth-child(2) {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    td:nth-child(5) {
+        white-space: nowrap;
+        overflow: visible;
+    }
+
+    td:nth-child(5) label {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    /* Ensure radio buttons and labels are fully visible */
+    td:nth-child(5) input[type="radio"],
+    td:nth-child(5) label {
+        font-size: 12px;
+    }
+    .table-container {
+        height: calc(100vh - 300px);
     }
 }
