@@ -1,7 +1,10 @@
 // Mock teacher credentials (replace with actual authentication system in production)
 const teachers = [
-    { id: 'teacher1', password: 'password1' },
-    { id: 'teacher2', password: 'password2' }
+    { id: 'Govardhan05', password: 'GovardhanRajulapati@DreamTeam' },
+    { id: 'Srinu01', password: 'Srinu@123' },
+    { id: 'Rakesh0880', password: 'Rakesh@0880' },
+    { id: 'Gagan781199', password: 'Gagan@781199' },
+    { id: 'Guru6303', password: 'Guru@6303' }
 ];
 
 // Mock student data (replace with actual data fetching in production)
